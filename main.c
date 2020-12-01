@@ -173,11 +173,12 @@ int introducao2(){
 
 int life = 100;
 void batalha1(){ //Falta implementar
-    int skill;
+    int vida = 90;
+    int skill,dano,dano1,dano2;
     printf("                              ______________   \n");
     printf("                        ,===:'.,            `-._  \n");
     printf("                             `:.`---.__         `-._              ─▄██▄██▄\n");
-    printf("                               `:.     `--.         `.            ─▀█████▀  %d%\n",life);
+    printf("                               `:.     `--.         `.            ─▀█████▀  %d\n",life);
     printf("                                 \.        `.         `.           ───▀█▀\n");
     printf("                         (,,(,    \.         `.   ____,-`.,  \n");
     printf("                      (,'     `/   \.   ,--.___`.'  \n");
@@ -195,29 +196,37 @@ void batalha1(){ //Falta implementar
     printf("                                                       ");
     printf("                                                       ");
     printf("                                                       ");
-    printf("                        O                       1 -> SKILL 1\n");
-    printf("                            /|/D                     2 -> SKILL 2\n");
-    printf("                           / |                       3 -> SKILL 3\n");
+    printf("─▄██▄██▄                O               1 -> SKILL 1 - Golpe de Furia \n");
+    printf("     ─▀█████▀ %d            /|/D             2 -> SKILL 2 - Bola de Fogo \n", vida);
+    printf("     ───▀█▀                / |               3 -> SKILL 3 - Dash\n");
     printf("                             /\\     \n");
      printf("                            / /     \n");
      printf("\n");
     printf("\n");
     printf("PrEpArE-sE pArA bAtAlHa!!!\n\n");
-    printf("-> ");
+    printf("Escolha a habilidade-> ");
     scanf("%d",&skill);
+    srand(time(NULL));
+    dano=25-(rand() % 10);
+    dano1=20-(rand() % 8);
+    dano2=2*(rand() % 10);
     if(skill == 1){
         clear();
-        life -= 20;
+        printf("Golpe de Furia - Dano %d\n", dano);
+        life = life - dano;
         batalha1();
     }else if(skill ==2){
             clear();
-            life -= 5;
+            printf("Bola de FogoDano - Dano %d\n", dano);
+            life = life - dano1;
             batalha1();
     }else if(skill == 3){
             clear();
-            life -= 2;
+            printf("Dash - Dano %d\n", dano);
+            life = life - dano2;
             batalha1();
     }
+
 }
 
 void charPorChar(char *text){
